@@ -1,20 +1,20 @@
 import './App.css'
-
+import {store} from './store/index'
 import TodoList from "./components/TodoList";
 import AddTodo from './components/AddTodo';
-import {createStore} from 'redux'
-import rootReducer from './redux/rootReducer'
-
-// const store = createStore(rootReducer)
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-    <div className='wrapper'>
-      <div>
-        <AddTodo />
-        <TodoList />
+    <Provider store={store}>
+      <div className='wrapper'>
+        <div>
+          <AddTodo />
+          <TodoList />
+          {console.log(store.getState())}
+        </div>
       </div>
-    </div>
+    </Provider>
   );
 }
 
