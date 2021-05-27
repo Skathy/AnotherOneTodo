@@ -5,16 +5,18 @@ import { addTodo } from './../store/todo-list/actions';
 
 
 export default function AddTodo() {
+    const [currentId, setCurrentId] = useState(1)
     const [inputValue, setInputValue] = useState({id: 0,title: '', completed: false})
     const dispatch = useDispatch()
 
    function addTodoHandler() {
        dispatch(addTodo({
-           id: inputValue.id,
+           id: currentId,
            title: inputValue.title,
-           completed: false
+           complete: false
        }))
-       setInputValue({id: 1, title: '', completed: false})
+       setCurrentId(currentId + 1)
+       setInputValue({title: ''})
    }
 
     return (

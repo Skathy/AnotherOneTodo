@@ -6,12 +6,11 @@ export default function TodoItem({todo, index}) {
     const [complete, setComplete] = useState(false)
     const dispatch = useDispatch()
 
-
     function deleteHandler() {
         dispatch(deleteTodo(todo))
     }
     function checkHandler() {
-        setComplete(!complete)
+        dispatch(checked(todo.id))
     }
 
     

@@ -19,6 +19,13 @@ export default ( state = initialState, action) => {
                 ]
             }
         }
+        case CHECKED: {
+            return {
+                todos: {
+                    
+                }
+            }
+        }
 
             default:  return state
     }
