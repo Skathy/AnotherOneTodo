@@ -5,22 +5,24 @@ import { addTodo } from './../store/todo-list/actions';
 
 
 export default function AddTodo() {
-    const [inputValue, setInputValue] = useState('')
+    const [inputValue, setInputValue] = useState({id: 0,title: '', completed: false})
     const dispatch = useDispatch()
 
    function addTodoHandler() {
        dispatch(addTodo({
-           title: inputValue
+           id: inputValue.id,
+           title: inputValue.title,
+           completed: false
        }))
-       setInputValue('')
+       setInputValue({id: 1, title: '', completed: false})
    }
 
     return (
         <div>
             <input
-            value={inputValue} 
+            value={inputValue.title} 
             placeholder='add todo..'
-            onChange={e => setInputValue(e.target.value)}
+            onChange={e => setInputValue(prev => ({...prev.title, title: e.target.value}))}
              type="text" />
             <button onClick={addTodoHandler}>add todo</button>
         </div>

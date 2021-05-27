@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO } from './actions';
+import { ADD_TODO, DELETE_TODO, CHECKED } from './actions';
 
 const initialState = {
     todos: []
@@ -20,6 +20,6 @@ export default ( state = initialState, action) => {
             }
         }
 
-    default:  return state
+            default:  return state
     }
 }
