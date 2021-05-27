@@ -21,12 +21,12 @@ export default ( state = initialState, action) => {
         }
         case CHECKED: {
             return {
-                todos: {
-                    
-                }
-            }
+                ...state,
+                todos: [
+                    state.todos.complete = !state.todos.complete
+                ]
         }
-
+    }
             default:  return state
     }
 }
