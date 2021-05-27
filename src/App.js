@@ -11,7 +11,7 @@ function App() {
         <div>
           <AddTodo />
           <TodoList />
-          {console.log(store.getState())}
+          {/* {console.log(store.getState())} */}
         </div>
       </div>
     </Provider>
