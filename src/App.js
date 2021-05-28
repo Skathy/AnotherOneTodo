@@ -8,11 +8,8 @@ function App() {
   return (
     <Provider store={store}>
       <div className='wrapper'>
-        <div>
           <AddTodo />
           <TodoList />
-          {/* {console.log(store.getState())} */}
-        </div>
       </div>
     </Provider>
   );

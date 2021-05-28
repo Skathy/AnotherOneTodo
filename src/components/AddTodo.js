@@ -36,7 +36,7 @@ export default function AddTodo() {
             onChange={e => setInputValue(prev => ({...prev.title, title: e.target.value}))}
             type="text"
             />
-            <button type='button' onClick={addTodoHandler}>add todo</button>
+            <button className='button' type='button' onClick={addTodoHandler}>add todo</button>
         </div>
     )
 }
