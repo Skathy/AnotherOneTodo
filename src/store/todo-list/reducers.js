@@ -23,7 +23,15 @@ export default ( state = initialState, action) => {
             return {
                 ...state,
                 todos: [
-                    state.todos.complete = !state.todos.complete
+                   ...state.todos.map( todo => {
+                       if (todo.id === action.payload) {
+                           return {
+                               ...todo, complete: !todo.complete
+                           }
+                       } else {
+                           return todo
+                       }
+                   })
                 ]
         }
     }

@@ -1,9 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { checked, deleteTodo } from '../store/todo-list/actions';
-import { useState } from 'react';
 
 export default function TodoItem({todo, index}) {
-    const [complete, setComplete] = useState(false)
     const dispatch = useDispatch()
 
     function deleteHandler() {
@@ -16,7 +14,7 @@ export default function TodoItem({todo, index}) {
     
     return(
         <div>
-            <input type="checkbox" onChange={checkHandler} checked={complete}/>
+            <input type="checkbox" onChange={checkHandler} checked={todo.complete}/>
             <strong>{index+1}   </strong>
             {todo.title}
             
