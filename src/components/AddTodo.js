@@ -10,13 +10,22 @@ export default function AddTodo() {
     const dispatch = useDispatch()
 
    function addTodoHandler() {
-       dispatch(addTodo({
-           id: currentId,
-           title: inputValue.title,
-           complete: false
-       }))
-       setCurrentId(currentId + 1)
-       setInputValue({title: ''})
+       if (inputValue.title !== '') {
+           if (inputValue.title.match("[A-Za-z0-9,. ]+")) {
+                dispatch(addTodo({
+                    id: currentId,
+                    title: inputValue.title,
+                    complete: false
+                }))
+                setCurrentId(currentId + 1)
+                setInputValue({title: ''})
+           } else {
+               alert('sry, only english is allowed')
+           }     
+       } else {
+           alert('todo can`t be an empty string or foreign words')
+       }
+       
    }
 
     return (
