@@ -8,6 +8,8 @@ export default function TodoList() {
     return (
         <div>
             {todos.map( (todo, index) => <TodoItem index={index} key={todo.id} todo={todo} />)}
+            <span>Todo amount: <strong>{todos.length}</strong></span>
         </div>
+        
     )
 }       
