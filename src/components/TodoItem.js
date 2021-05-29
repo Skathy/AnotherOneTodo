@@ -13,11 +13,13 @@ export default function TodoItem({todo, index}) {
     
 
     return(
-        <div>
-            <input type="checkbox" onChange={checkHandler} checked={todo.complete}/>
-            <strong>{index+1}.   </strong>
-            {todo.title}
-            <button onClick={deleteHandler}>X</button>
+        <div className='todo-wrapper'>
+            <input id="flexCheckDefault" className='form-check-input' type="checkbox" onChange={checkHandler} checked={todo.complete}/>
+            <label class="form-check-label" for="flexCheckDefault">
+                <strong>{index+1}. </strong>{todo.title}
+            </label>
+            
+            <button className='cancel-button' onClick={deleteHandler}>&times;</button>
         </div>
     )
 }
