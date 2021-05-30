@@ -73,3 +73,7 @@ input[type=text] {
   margin-top: 15px;
   font-size: 1.25rem;
 }
+
+.form-check-label {
+  text-decoration: line-through;
+}

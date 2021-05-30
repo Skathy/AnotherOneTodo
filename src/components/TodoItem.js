@@ -14,8 +14,8 @@ export default function TodoItem({todo, index}) {
 
     return(
         <div className='todo-wrapper'>
-            <input id="flexCheckDefault" className='form-check-input' type="checkbox" onChange={checkHandler} checked={todo.complete}/>
-            <label class="form-check-label" for="flexCheckDefault">
+            <input className='form-check-input' type="checkbox" onChange={checkHandler} checked={todo.complete}/>
+            <label class={todo.complete ? 'form-check-label' : ''} >
                 <strong>{index+1}. </strong>{todo.title}
             </label>
             
