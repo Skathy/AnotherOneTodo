@@ -5,7 +5,7 @@ import { addTodo } from './../store/todo-list/actions';
 
 
 export default function AddTodo() {
-    const [currentId, setCurrentId] = useState(1)
+    const [currentId, setCurrentId] = useState(localStorage.getItem('counter') ? JSON.parse(localStorage.getItem('counter')) : 1)
     const [inputValue, setInputValue] = useState({id: 0,title: '', completed: false})
     const dispatch = useDispatch()
 
@@ -19,13 +19,14 @@ export default function AddTodo() {
                 }))
                 setCurrentId(currentId + 1)
                 setInputValue({title: ''})
+                localStorage.setItem('counter', JSON.stringify( currentId + 1)) 
+
            } else {
                alert('sry, only english is allowed')
            }     
        } else {
            alert('todo can`t be an empty string or foreign words')
        }
-       
    }
 
     return (
