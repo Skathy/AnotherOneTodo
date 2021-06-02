@@ -4,40 +4,61 @@ import { addTodo } from './../store/todo-list/actions';
 
 
 
-export default function AddTodo() {
-    const [currentId, setCurrentId] = useState(localStorage.getItem('counter') ? JSON.parse(localStorage.getItem('counter')) : 1)
-    const [inputValue, setInputValue] = useState({id: 0,title: '', completed: false})
+export default function AddTodo({todos}) {
+
+    const [currentId, setCurrentId] = useState(1)
+    const [inputValue, setInputValue] = useState({
+        id: 0,
+        title: '', 
+        completed: false
+    })
     const dispatch = useDispatch()
 
-   function addTodoHandler() {
-       if (inputValue.title !== '') {
-           if (inputValue.title.match("[A-Za-z0-9,. ]+")) {
-                dispatch(addTodo({
+    const [alert, setAlert] = useState({
+        isEngValid: Boolean(inputValue.title.match('[A-Za-z0-9,. ]+')),
+    })
+
+    const errors = {
+        isEngValid: 'sry no habla espaniola! Eng only!'
+    }
+
+    const addTodoHandler = () => {
+        if (alert.isEngValid) {
+            dispatch(
+                addTodo({
                     id: currentId,
                     title: inputValue.title,
                     complete: false
-                }))
-                setCurrentId(currentId + 1)
-                setInputValue({title: ''})
-                localStorage.setItem('counter', JSON.stringify( currentId + 1)) 
-
-           } else {
-               alert('sry, only english is allowed')
-           }     
-       } else {
-           alert('todo can`t be an empty string or foreign words')
-       }
-   }
+                })
+            )
+            localStorage.setItem('todos',JSON.stringify( todos))
+            setCurrentId(prev => prev + 1)
+            setInputValue({title: ''})
+        }
+    }
+   
+    const inputOnChangeHandler = (e) => {
+        setAlert( prev => ({
+            ...prev,
+            isEngValid: Boolean(e.target.value.match('[A-Za-z0-9,. ]+')),
+        }))
+        setInputValue(prev => ({...prev, title: e.target.value}))
+    }
 
     return (
         <div>
             <input
             value={inputValue.title} 
             placeholder='add todo..'
-            onChange={e => setInputValue(prev => ({...prev.title, title: e.target.value}))}
+            onChange={e => inputOnChangeHandler(e)}
             type="text"
             />
             <button className='button' type='button' onClick={addTodoHandler}>add todo</button>
+            {!alert.isEngValid ? (
+                <div>
+                    {Object.keys( errors) === Object.keys(alert) ? null : null} 
+                </div>
+            ) : null}
         </div>
     )
 }
