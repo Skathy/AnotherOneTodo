@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.0.1",
     "react": "0.0.0-d75105fa9",
-    "react-dom": "next",
+    "react-dom": "0.0.0-28625c6f4",
     "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
