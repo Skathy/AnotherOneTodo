@@ -31,11 +31,11 @@ export default function AddTodo({todos}) {
                     complete: false
                 })
             )
-            localStorage.setItem('todos',JSON.stringify( todos))
-            setCurrentId(prev => prev + 1)
+            setCurrentId(prev => (prev + 1))
             setInputValue({title: ''})
         }
     }
+    localStorage.setItem('todos', JSON.stringify(todos))
    
     const inputOnChangeHandler = (e) => {
         setAlert( prev => ({

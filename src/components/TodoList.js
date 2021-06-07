@@ -2,13 +2,22 @@ import TodoItem from './TodoItem'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import AddTodo from './AddTodo';
+import { useDispatch } from 'react-redux';
+import { getTodos } from '../store/todo-list/actions';
 
 
 export default function TodoList() {
     const {todos} = useSelector(state => state.todoReducer)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos))
+       JSON.parse(localStorage.getItem('todos'))
+        ? dispatch(
+        getTodos(
+            JSON.parse(localStorage.getItem('todos'))
+                )
+            )
+        : localStorage.setItem('todos', JSON.stringify(todos))
     }, [])
 
     return (
