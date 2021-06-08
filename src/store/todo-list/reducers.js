@@ -6,6 +6,12 @@ const initialState = {
 
 export default ( state = initialState, action) => {
     switch (action.type) {
+        case GET_TODOS: {
+            return {
+                ...state,
+                todos: action.payload
+            }
+        }
         case ADD_TODO: {
             return {
                 ...state,
@@ -14,33 +20,15 @@ export default ( state = initialState, action) => {
         }
         case DELETE_TODO: {
             return {
-                todos: [
-                    ...state.todos.filter(todo => todo !== action.payload)
-                ]
+                ...state,
+                todos: action.payload
             }
         }
         case CHECKED: {
             return {
                 ...state,
-                todos: [
-                   ...state.todos.map( todo => {
-                       if (todo.id === action.payload) {
-                           return {
-                               ...todo, complete: !todo.complete
-                           }
-                       } else {
-                           return todo
-                       }
-                   })
-                ]
-            }
-        }
-        case GET_TODOS: {
-            return {
-                ...state,
                 todos: action.payload
             }
-
         }
             default:  return state
     }

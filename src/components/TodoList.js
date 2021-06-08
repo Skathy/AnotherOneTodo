@@ -2,16 +2,16 @@ import TodoItem from './TodoItem'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { useState } from 'react';  
-import { addTodo, getTodos } from './../store/todo-list/actions';
-import { v4 as uuid} from 'uuid'
+import { addTodo, getTodos, checked, deleteTodo } from './../store/todo-list/actions';
+import { v4 as uuid } from 'uuid'
 
 
 export default function TodoList() {
-    const {todos} = useSelector(state => state.todoReducer)
+    const {todos} = useSelector(state => state.todos)
     const dispatch = useDispatch()
 
-    const [inputValue, setInputValue] = useState({
-        id: '',
+    const [todo, setTodo] = useState({
+        id: uuid(),
         title: '', 
         completed: false
     })
@@ -25,29 +25,42 @@ export default function TodoList() {
 
 
     const [alert, setAlert] = useState({
-        isEngValid: Boolean(inputValue.title.match('[A-Za-z0-9,. ]+')),
+        isEngValid: Boolean(todo.title.match('[A-Za-z0-9,. ]+')),
     })
     const errors = {
         isEngValid: 'sry no habla espaniola! Eng only!'
     }
 
+    const deleteHandler = (id) => {
+        const filteredArr = todos.filter( item => item.id !== id)
+        dispatch(deleteTodo(filteredArr))
+        localStorage.setItem('todos', JSON.stringify(filteredArr))
+    }
+    
+    function checkHandler(id) {
+        const checkedArr = todos.map( item => {
+            if (item.id === id) {
+               return {...item, completed: !item.completed}
+            } else {
+                return item
+            } 
+        })
+        dispatch(checked(checkedArr))
+        localStorage.setItem('todos', JSON.stringify(checkedArr))
+    }
 
     const addTodoHandler = () => {
-        if (inputValue.title.trim() !== '' && alert.isEngValid) {
-            dispatch(addTodo(inputValue))
-            localStorage.setItem('todos', JSON.stringify([...todos, inputValue]))
-            setInputValue({title: ''})
+        if (todo.title.trim() !== '') {
+            setTodo(prev => ({...prev, id: uuid()}))
+            dispatch(addTodo(todo))
+            localStorage.setItem('todos', JSON.stringify([...todos, todo]))
+            setTodo(prev => ({...prev, title: ''}))
         }    
     }
-   
-    const inputOnChangeHandler = (e) => {
-        setAlert( prev => ({
-            ...prev,
-            isEngValid: Boolean(e.target.value.match('[A-Za-z0-9,. ]+')),
-        }))
-        setInputValue(prev => ({...prev, id: uuid(), title: e.target.value}))
-    }
 
+    const inputOnChangeHandler = (e) => {
+            setTodo((prev) => ({...prev, title: e.target.value}))
+    }
 
     
 
@@ -56,7 +69,7 @@ export default function TodoList() {
             <div className='input-wrapper'>
                 <input
                     className='input'
-                    value={inputValue.title} 
+                    value={todo.title} 
                     placeholder='add todo..'
                     onChange={e => inputOnChangeHandler(e)}
                     type="text"
@@ -73,7 +86,9 @@ export default function TodoList() {
                     <div key={index}>
                         <TodoItem 
                             index={index} 
-                            todo={todo} 
+                            todo={todo}
+                            deleteHandler={deleteHandler}
+                            checkHandler={checkHandler} 
                         />
                     </div>
                 ))}
