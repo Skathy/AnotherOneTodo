@@ -1,12 +1,16 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { checked, deleteTodo } from '../store/todo-list/actions';
 
 export default function TodoItem({todo, index}) {
     const dispatch = useDispatch()
 
-    function deleteHandler() {
+    const deleteHandler = () => {
         dispatch(deleteTodo(todo))
+        const todos = JSON.parse(localStorage.getItem('todos'))
+        todos.filter(td => td !== todo.id)
+        localStorage.setItem('todos', JSON.stringify(todos))
     }
+    
     function checkHandler() {
         dispatch(checked(todo.id))
     }
