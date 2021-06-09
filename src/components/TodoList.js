@@ -18,7 +18,7 @@ export default function TodoList() {
 
     const [validateAlert, setValidateAlert] = useState([
         { isEmpty: false },
-        // { isEngValid: Boolean(todo.text.match('^[A-Za-z0-9]+$')) },
+        { isEngValid: Boolean(todo.title.match('^[A-Za-z0-9]+$')) },
     ])
     const errors = {
         isEngValid: 'sry no habla espaniola! Eng only!',
@@ -69,7 +69,7 @@ export default function TodoList() {
             dispatch(addTodo(todo))
             localStorage.setItem('todos', JSON.stringify([...todos, todo]))
             setTodo(prev => ({...prev, title: ''}))
-        }    
+        } 
     }
 
     const inputOnChangeHandler = (e) => {
@@ -97,7 +97,7 @@ export default function TodoList() {
                 <button className='button' type='button' onClick={addTodoHandler}>add todo</button>
             </div>
             <div>
-                {displayAlert().map(alert => (
+                {displayAlert()?.map(alert => (
                     <div>{alert}</div>
                 ))}
             </div>
