@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 export default function TodoItem({todo, index, deleteHandler, checkHandler, editHandler}) {
     return(
         <div className='todo-item'>
@@ -6,7 +7,8 @@ export default function TodoItem({todo, index, deleteHandler, checkHandler, edit
             <label className={todo.completed ? 'form-check-label' : ''} >
                 <strong>{index+1}. </strong>{todo.title}
             </label>
-            <button className='edit-button' onClick={() => editHandler(todo.id)}>Edit</button>
+            {/* <button className='edit-button' onClick={() => editHandler()}>Edit</button> */}
+            <Link to='/edit'>Edit</Link>
             <button className='cancel-button' onClick={() => deleteHandler(todo.id)}>&times;</button>
         </div>
     )

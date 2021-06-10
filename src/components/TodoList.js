@@ -86,7 +86,7 @@ export default function TodoList() {
                                 index={index} 
                                 todo={todo}
                                 deleteHandler={deleteHandler}
-                                checkHandler={checkHandler} 
+                                checkHandler={checkHandler}
                             />
                     ))}
                 </div>
