@@ -1,28 +1,28 @@
-body {
-  background-color: #b1b1b1de;
-}
 .wrapper {
-    background: rgb(243, 241, 241);
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    background: rgba(0, 0, 0, 0.7);
     padding: 15px;
     border-radius: 5px;
-    display: flex;
     margin: 0 auto;
-    flex-direction: column;
     width: 350px;
-    justify-content: center;
-    margin-top: 100px;
+    margin-top: 15%;
     -webkit-box-shadow: 15px 13px 37px 7px rgba(0, 0, 0, 0.23);
     -moz-box-shadow: 15px 13px 37px 7px rgba(0, 0, 0, 0.23);
     box-shadow: 15px 13px 37px 7px rgba(0, 0, 0, 0.23);
 }
-
+.input-wrapper {
+  display: flex;
+}
 input[type=text]:focus {
+    text-transform: uppercase;
     border: 2px solid lightgray;
 }
 input[type=text] {
-    width: 74%;
+    font-family: 'Press Start 2P', cursive;
+    width: 75%;
     padding: 12px 20px;
-    margin: 8px 0;
+    padding-top: 10px;
     box-sizing: border-box;
 }
 .todo-wrapper {
@@ -32,7 +32,16 @@ input[type=text] {
   border-bottom: 2px solid rgb(172, 167, 167);
   border-radius: 5px;
   align-items: center;
-
+  color: #fff;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px #fff,
+  0 0 6px #fff,
+  0 0 10px rgb(0, 204, 255),
+  0 0 45px rgb(0, 204, 255),
+  0 0 55px rgb(0, 204, 255),
+  0 0 70px rgb(0, 204, 255),
+  0 0 80px rgb(0, 204, 255);
 }
 
 .cancel-button {
@@ -52,28 +61,37 @@ input[type=text] {
   background-color: rgb(172, 167, 167);
 }
 .button {
+  font-family: 'Press Start 2P', cursive;
   transition: 0.4s;
-  background-color: white;
-  border: 2px solid rgb(172, 167, 167);
-  color: black;
-  padding: 13px 20px;
+  padding: 13px 18px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 11px;
-
-  margin-left: 0.8%;
+  margin-left: auto;
   cursor: pointer;
 }
 .button:hover {
-  background-color: rgb(172, 167, 167);
+  background-color: #bc13fe;
+
 }
 
 .todo-counter {
   margin-top: 15px;
   font-size: 1.25rem;
+  color: rgb(0, 0, 0);
+  text-shadow:
+  0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff,
+  0 0 42px rgb(0, 204, 255),
+  0 0 82px rgb(0, 204, 255),
+  0 0 92px rgb(0, 204, 255),
+  0 0 102px rgb(0, 204, 255),
+  0 0 151px rgb(0, 204, 255);
 }
 
 .form-check-label {
   text-decoration: line-through;
+  color: rgb(250, 0, 0);
 }

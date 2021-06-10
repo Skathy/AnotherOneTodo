@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { addTodo, getTodos, checked, deleteTodo } from './../store/todo-list/actions';
 import { v4 as uuid } from 'uuid'
 
-
 export default function TodoList() {
     const {todos} = useSelector(state => state.todos)
     const dispatch = useDispatch()
@@ -62,41 +61,39 @@ export default function TodoList() {
             setTodo((prev) => ({...prev, title: e.target.value}))
     }
 
-    
 
     return (
-        <div>
-            <div className='input-wrapper'>
-                <input
-                    className='input'
-                    value={todo.title} 
-                    placeholder='add todo..'
-                    onChange={e => inputOnChangeHandler(e)}
-                    type="text"
-                    />
-                <button className='button' type='button' onClick={addTodoHandler}>add todo</button>
-                {!alert.isEngValid ? (
-                    <div>
-                        {Object.keys( errors) === Object.keys(alert) ? null : null} 
-                    </div>
-                ) : null}
-            </div>
             <div>
-                {todos.map( (todo, index) => (
-                    <div key={index}>
-                        <TodoItem 
-                            index={index} 
-                            todo={todo}
-                            deleteHandler={deleteHandler}
-                            checkHandler={checkHandler} 
+                <div className='input-wrapper'>
+                    <input
+                        className='input'
+                        value={todo.title} 
+                        placeholder='ADD TODO..'
+                        onChange={e => inputOnChangeHandler(e)}
+                        type="text"
                         />
-                    </div>
-                ))}
-            </div>
-            <div className='todo-counter'>
-                {todos?.length ? `Todo amount ${todos.length}` : null}
-            </div>
-        </div>
-        
+                    <button className='button' type='button' onClick={addTodoHandler}>ADD</button>
+                    {!alert.isEngValid ? (
+                        <div>
+                            {Object.keys( errors) === Object.keys(alert) ? null : null} 
+                        </div>
+                    ) : null}
+                </div>
+                <div>
+                    {todos.map( (todo, index) => (
+                        <div key={index}>
+                            <TodoItem 
+                                index={index} 
+                                todo={todo}
+                                deleteHandler={deleteHandler}
+                                checkHandler={checkHandler} 
+                            />
+                        </div>
+                    ))}
+                </div>
+                <div className='todo-counter'>
+                    {todos?.length ? `TODO AMOUNT: ${todos.length}` : null}
+                </div>
+            </div>  
     )
 }       
