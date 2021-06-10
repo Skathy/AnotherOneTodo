@@ -13,17 +13,20 @@
 }
 .input-wrapper {
   display: flex;
+  margin-bottom: 20px;
 }
 input[type=text]:focus {
     text-transform: uppercase;
     border: 2px solid lightgray;
+    border-radius: 5px;
 }
 input[type=text] {
     font-family: 'Press Start 2P', cursive;
-    width: 75%;
+    width: 78%;
     padding: 12px 20px;
     padding-top: 10px;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 .todo-wrapper {
   font-size: 1rem;
@@ -58,9 +61,11 @@ input[type=text] {
     cursor: pointer;
 }
 .cancel-button:hover {
-  background-color: rgb(172, 167, 167);
+  background-color: rgb(141, 139, 139);
 }
-.button {
+.button-input {
+  border: 2px solid rgb(139, 139, 139);
+  border-radius: 5px;
   font-family: 'Press Start 2P', cursive;
   transition: 0.4s;
   padding: 13px 18px;
@@ -71,9 +76,10 @@ input[type=text] {
   margin-left: auto;
   cursor: pointer;
 }
-.button:hover {
+.button-input:hover {
+  border: 2px solid #8a02c0;
   background-color: #bc13fe;
-
+  border-radius: 5px;
 }
 
 .todo-counter {

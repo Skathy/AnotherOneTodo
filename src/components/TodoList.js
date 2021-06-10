@@ -72,7 +72,7 @@ export default function TodoList() {
                         onChange={e => inputOnChangeHandler(e)}
                         type="text"
                         />
-                    <button className='button' type='button' onClick={addTodoHandler}>ADD</button>
+                    <button className='button-input' type='button' onClick={addTodoHandler}>ADD</button>
                     {!alert.isEngValid ? (
                         <div>
                             {Object.keys( errors) === Object.keys(alert) ? null : null} 

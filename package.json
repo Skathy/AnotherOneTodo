@@ -11,6 +11,7 @@
     "react-dom": "0.0.0-28625c6f4",
     "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
+    "react-sound": "^1.2.0",
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
     "uuid": "^8.3.2",
