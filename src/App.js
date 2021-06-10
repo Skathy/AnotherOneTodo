@@ -9,8 +9,8 @@ function App() {
   return (
     <Provider store={store}>
       <div className='wrapper'>
-          <LofiSound />
           <TodoList />
+          <LofiSound />
       </div>
     </Provider>
   );

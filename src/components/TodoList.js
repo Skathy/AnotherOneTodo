@@ -79,16 +79,15 @@ export default function TodoList() {
                         </div>
                     ) : null}
                 </div>
-                <div>
+                <div className='todo-wrapper'>
                     {todos.map( (todo, index) => (
-                        <div key={index}>
-                            <TodoItem 
+                            <TodoItem
+                                key={index} 
                                 index={index} 
                                 todo={todo}
                                 deleteHandler={deleteHandler}
                                 checkHandler={checkHandler} 
                             />
-                        </div>
                     ))}
                 </div>
                 <div className='todo-counter'>
