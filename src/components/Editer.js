@@ -1,13 +1,18 @@
-import { Link } from "react-router-dom"
+import React from "react"
+import { useHistory } from "react-router-dom"
 
-const Editer = () => {
+
+const Editer = ({editHandler}) => {
+    const history = useHistory()
+
     return (
-        <div>
-            <h2>new page!</h2>
-            <input type="text" value='Hello, bish'/>
-            <Link to='/'>Edit!</Link>
-            {/* <button>edit!</button> */}
-        </div>
+            <div>
+                <input 
+                    type="text" 
+                    placeholder='edit todo..'
+                />
+                <button onClick={() => {editHandler()}}>change</button>
+            </div>
     )
 }
 

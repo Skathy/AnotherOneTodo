@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { addTodo, getTodos, checked, deleteTodo } from './../store/todo-list/actions';
 import { v4 as uuid } from 'uuid'
 
+
+
 export default function TodoList() {
     const {todos} = useSelector(state => state.todos)
     const dispatch = useDispatch()
@@ -60,7 +62,18 @@ export default function TodoList() {
     const inputOnChangeHandler = (e) => {
             setTodo((prev) => ({...prev, title: e.target.value}))
     }
-
+    const editHandler = (id) => {
+        const editedArr = todos.map( item => {
+            if (item.id === id) {
+               return {...item, title: todo.title}
+            } else {
+                return item
+            } 
+        })
+        dispatch(checked(editedArr))
+        localStorage.setItem('todos', JSON.stringify(editedArr))
+        setTodo(prev => ({...prev, title: ''}))
+    }
 
     return (
             <div>
@@ -87,6 +100,7 @@ export default function TodoList() {
                                 todo={todo}
                                 deleteHandler={deleteHandler}
                                 checkHandler={checkHandler}
+                                editer={editHandler}
                             />
                     ))}
                 </div>
