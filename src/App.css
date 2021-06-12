@@ -31,16 +31,19 @@ input[type=text] {
 
 .todo-wrapper {
   overflow: scroll;
-  max-height: 132px;
+  max-height: 162px;
   scroll-behavior: smooth;
   overflow-x: hidden;
   scrollbar-width: none
 }
+.todo-item-wrapper {
+  border-bottom: 2px solid rgb(172, 167, 167);
+  border-radius: 5px;
+  padding: 5px;
+}
 .todo-item {
   font-size: 0.7rem;
   display: flex;
-  border-bottom: 2px solid rgb(172, 167, 167);
-  border-radius: 5px;
   align-items: center;
   text-shadow:
   0 0 2px #fff,

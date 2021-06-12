@@ -4,19 +4,17 @@ import TodoList from "./components/TodoList";
 import { Provider } from 'react-redux';
 import LofiSound from './components/LofiSound';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-// import Editer from './components/Editer';
 
 
 function App() {
   return (
     <Provider store={store}>
-      {/* <LofiSound /> */}
+      <LofiSound />
       <Router>
         <Switch>
           <Route path='/'>
             <div className='wrapper'>
                   <TodoList />
-                  {/* <Editer /> */}
             </div>
           </Route>
         </Switch>

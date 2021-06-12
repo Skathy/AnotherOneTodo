@@ -2,12 +2,14 @@ import TodoItem from './TodoItem'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { useState } from 'react';  
-import { addTodo, getTodos, checked, deleteTodo } from './../store/todo-list/actions';
+import { addTodo, getTodos, checked, deleteTodo, editTodo } from './../store/todo-list/actions';
 import { v4 as uuid } from 'uuid'
 
 
 
 export default function TodoList() {
+    const [edit, setEdit] = useState(null)
+    const [editText, setEditText] = useState(null)
     const {todos} = useSelector(state => state.todos)
     const dispatch = useDispatch()
 
@@ -62,17 +64,26 @@ export default function TodoList() {
     const inputOnChangeHandler = (e) => {
             setTodo((prev) => ({...prev, title: e.target.value}))
     }
-    const editHandler = (id) => {
-        const editedArr = todos.map( item => {
+    const editInputHandler = (e) => {
+        setEditText(prev => ({...prev, title: e.target.value}))
+    }
+    const editHandler = (id, todo) => {
+        setEditText(todo)
+        setEdit(id)
+    }
+
+    const submitEditing = (id) => {
+        const editedArr = todos.map(item => {
             if (item.id === id) {
-               return {...item, title: todo.title}
+                return {...item, title: editText.title}
             } else {
                 return item
-            } 
+            }
         })
-        dispatch(checked(editedArr))
+        dispatch(editTodo(editedArr))
         localStorage.setItem('todos', JSON.stringify(editedArr))
-        setTodo(prev => ({...prev, title: ''}))
+        setEditText(null)
+        setEdit(null)
     }
 
     return (
@@ -101,6 +112,11 @@ export default function TodoList() {
                                 deleteHandler={deleteHandler}
                                 checkHandler={checkHandler}
                                 editer={editHandler}
+                                edit={edit}
+                                editText={editText}
+                                setEditText={setEditText}
+                                editInputHandler={editInputHandler}
+                                submitEdit={submitEditing}
                             />
                     ))}
                 </div>

@@ -1,8 +1,4 @@
 export const ADD_TODO = 'ADD_TODO'
-export const DELETE_TODO = 'DELETE_TODO'
-export const CHECKED = 'CHECKED'
-export const GET_TODOS = 'GET_TODOS'
-
 export const addTodo = (payload) => {
     return {
         type: ADD_TODO,
@@ -10,6 +6,7 @@ export const addTodo = (payload) => {
     }
 }
 
+export const DELETE_TODO = 'DELETE_TODO'
 export const deleteTodo = (payload) => {
     return {
         type: DELETE_TODO,
@@ -17,6 +14,7 @@ export const deleteTodo = (payload) => {
     }
 }
 
+export const CHECKED = 'CHECKED'
 export const checked = (payload) => {
     return {
         type: CHECKED,
@@ -24,6 +22,7 @@ export const checked = (payload) => {
     }
 }
 
+export const GET_TODOS = 'GET_TODOS'
 export const getTodos = (payload) => {
     return {
         type: GET_TODOS,
@@ -31,4 +30,10 @@ export const getTodos = (payload) => {
     }
 }
 
-//^17.0.2
+export const EDIT_TODO = 'EDIT_TODO'
+export const editTodo = (payload) => {
+    return {
+        type: EDIT_TODO,
+        payload
+    }
+}
