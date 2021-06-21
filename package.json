@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.0.1",
+    "node-sass": "^6.0.0",
     "react": "0.0.0-d75105fa9",
     "react-dom": "0.0.0-28625c6f4",
     "react-redux": "^7.2.4",

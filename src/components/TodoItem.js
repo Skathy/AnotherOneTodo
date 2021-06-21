@@ -1,4 +1,4 @@
-import React, {useState}  from 'react'
+import React  from 'react'
 
 export default function TodoItem({todo, index, deleteHandler, checkHandler, editer, edit, editText, editInputHandler, submitEdit}) {
 

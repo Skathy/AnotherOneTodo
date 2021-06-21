@@ -1,3 +1,5 @@
+@import './assets/styles/colors.scss';
+
 .wrapper {
     text-transform: uppercase;
     font-family: 'Press Start 2P', cursive;
@@ -45,15 +47,7 @@ input[type=text] {
   font-size: 0.7rem;
   display: flex;
   align-items: center;
-  text-shadow:
-  0 0 2px #fff,
-  0 0 4px #fff,
-  0 0 6px #fff,
-  0 0 10px rgb(0, 204, 255),
-  0 0 25px rgb(0, 204, 255),
-  0 0 15px rgb(0, 204, 255),
-  0 0 20px rgb(0, 204, 255),
-  0 0 20px rgb(0, 204, 255);
+  text-shadow: $text-shadow-nonchecked;
 }
 .todo-item a {
   margin-left: auto;
@@ -63,7 +57,7 @@ input[type=text] {
   border: 2px solid #8a02c0;
   border-radius: 5px;
   background-color: #000;
-  color: #fff;
+  color: $input-btn;
   margin-left: auto;
   padding: 3px;
   cursor: pointer;
@@ -81,7 +75,7 @@ input[type=text] {
     transition: 0.4s;
     border: 2px solid #8a02c0;
     background-color: #000;
-    color: #fff;
+    color: $input-btn;
     margin: 8px 2px;
     cursor: pointer;
 }
@@ -92,7 +86,7 @@ input[type=text] {
 }
 .button-input {
   background-color: #000;
-  color: #fff;
+  color: $input-btn;
   border: 2px solid #8a02c0;
   border-radius: 5px;
   font-family: 'Press Start 2P', cursive;
@@ -111,30 +105,14 @@ input[type=text] {
 .todo-counter {
   margin-top: 15px;
   font-size: 1.25rem;
-  color: rgb(0, 0, 0);
-  text-shadow:
-  0 0 2px #fff,
-  0 0 4px #fff,
-  0 0 6px #fff,
-  0 0 10px rgb(0, 4, 255),
-  0 0 25px rgb(0, 255, 98),
-  0 0 15px rgb(0, 255, 98),
-  0 0 20px rgb(0, 255, 98),
-  0 0 20px rgb(0, 255, 98);
+  color: $text;
+  text-shadow: $todo-counter-shadow;
 }
 
 .form-check-label {
   text-decoration: line-through;
-  color: rgb(250, 0, 0);
-  text-shadow:
-  0 0 2px #fff,
-  0 0 4px #fff,
-  0 0 6px #fff,
-  0 0 10px rgb(250, 0, 0),
-  0 0 25px rgb(250, 0, 0),
-  0 0 15px rgb(250, 0, 0),
-  0 0 20px rgb(250, 0, 0),
-  0 0 20px rgb(250, 0, 0);
+  color: $checked-text;
+  text-shadow: $text-shadow-checked;
 }
 
 .form-check-input{

@@ -67,7 +67,7 @@ export default function TodoList() {
     }
 
     const addTodoHandler = () => {
-        if (todo.title.trim() !== '' && displayAlert() == false) {
+        if (todo.title.trim() !== '' ) {
             setTodo(prev => ({...prev, id: uuid()}))
             dispatch(addTodo(todo))
             localStorage.setItem('todos', JSON.stringify([...todos, todo]))
