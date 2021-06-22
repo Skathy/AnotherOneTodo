@@ -1,0 +1,45 @@
+@import '../../assets/styles/colors.scss';
+
+.input-wrapper {
+    display: flex;
+    margin-bottom: 20px;
+    .input {
+        font-family: 'Press Start 2P', cursive;
+        width: 78%;
+        padding: 12px 20px;
+        padding-top: 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        text-transform: uppercase;
+    }
+    .button-input {
+        background-color: #000;
+        color: $input-btn;
+        border: 2px solid #8a02c0;
+        border-radius: 5px;
+        font-family: 'Press Start 2P', cursive;
+        transition: 0.4s;
+        padding: 13px 18px;
+        font-size: 11px;
+        margin-left: auto;
+        cursor: pointer;
+        &:hover {
+            border: 2px solid #8a02c0;
+            background-color: #bc13fe;
+            border-radius: 5px;
+        }
+    }
+}
+.todo-wrapper {
+    overflow: scroll;
+    max-height: 162px;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+.todo-counter {
+    margin-top: 15px;
+    font-size: 1.25rem;
+    color: $text;
+    text-shadow: $todo-counter-shadow;
+}

@@ -1,6 +1,6 @@
 import { React } from 'react';
 import Sound from 'react-sound';
-import lofisong from '../media/lofisong.opus'
+import lofisong from '../../media/lofisong.opus'
 
 const LofiSound =(
     handleSongLoading,

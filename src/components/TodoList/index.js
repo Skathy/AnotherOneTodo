@@ -1,13 +1,14 @@
-import TodoItem from './TodoItem'
+import TodoItem from '../TodoItem'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { useState } from 'react';  
-import { addTodo, getTodos, checked, deleteTodo, editTodo } from './../store/todo-list/actions';
+import { addTodo, getTodos, checked, deleteTodo, editTodo } from '../../store/todo-list/actions';
 import { v4 as uuid } from 'uuid'
+import './styles.scss'
 
 
 
-export default function TodoList() {
+const TodoList = () => {
     const [edit, setEdit] = useState(null)
     const [editText, setEditText] = useState(null)
     const {todos} = useSelector(state => state.todos)
@@ -117,11 +118,11 @@ export default function TodoList() {
                         type="text"
                         />
                     <button className='button-input' type='button' onClick={addTodoHandler}>ADD</button>
-                    {!alert.isEngValid ? (
+                    {!alert.isEngValid ? 
                         <div>
-                            {Object.keys( errors) === Object.keys(alert) ? null : null} 
+                            {Object.keys( errors) === Object.keys(alert) ? {alert} : null} 
                         </div>
-                    ) : null}
+                     : null}
                 </div>
                 <div className='todo-wrapper'>
                     {todos.map( (todo, index) => (
@@ -145,4 +146,6 @@ export default function TodoList() {
                 </div>
             </div>  
     )
-}       
+}
+
+export default TodoList

@@ -1,6 +1,7 @@
 import React  from 'react'
+import './styles.scss'
 
-export default function TodoItem({todo, index, deleteHandler, checkHandler, editer, edit, editText, editInputHandler, submitEdit}) {
+const TodoItem = ({todo, index, deleteHandler, checkHandler, editer, edit, editText, editInputHandler, submitEdit}) => {
 
     return(
         <div className='todo-item-wrapper'>
@@ -25,3 +26,5 @@ export default function TodoItem({todo, index, deleteHandler, checkHandler, edit
         </div>
     )
 }
+
+export default TodoItem

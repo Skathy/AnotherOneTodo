@@ -1,0 +1,52 @@
+@import '../../assets/styles/colors.scss';
+
+.todo-item-wrapper {
+    border-bottom: 2px solid #8a02c0;
+    border-radius: 5px;
+    padding: 5px;
+    .todo-item {
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        text-shadow: $text-shadow-nonchecked;
+        .form-check-input{
+            margin-right: 10px;
+        }
+        .form-check-label {
+            text-decoration: line-through;
+            color: $checked-text;
+            text-shadow: $text-shadow-checked;
+        }
+        .edit-button {
+            border: 2px solid #8a02c0;
+            border-radius: 5px;
+            background-color: #000;
+            color: $input-btn;
+            margin-left: auto;
+            padding: 3px;
+            cursor: pointer;
+            &:hover {
+                border: 2px solid #8a02c0;
+                background-color: #bc13fe;
+                border-radius: 5px;
+            }
+        }
+        .cancel-button {
+            width: 26px;
+            padding: 3px;
+            align-items: center;
+            border-radius: 5px;
+            transition: 0.4s;
+            border: 2px solid #8a02c0;
+            background-color: #000;
+            color: $input-btn;
+            margin: 8px 2px;
+            cursor: pointer;
+            &:hover {
+                border: 2px solid #8a02c0;
+                background-color: #bc13fe;
+                border-radius: 5px;
+            }
+        }
+    } 
+}

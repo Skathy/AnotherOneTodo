@@ -1,12 +1,12 @@
 import './App.scss'
-import {store} from './store/index'
+import {store} from './store'
 import TodoList from "./components/TodoList";
 import { Provider } from 'react-redux';
 import LofiSound from './components/LofiSound';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
-function App() {
+const App = ()  => {
   return (
     <Provider store={store}>
       <LofiSound />
