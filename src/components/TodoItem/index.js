@@ -10,17 +10,18 @@ const TodoItem = ({todo, index, deleteHandler, checkHandler, editer, edit, editT
                 <label className={todo.completed ? 'form-check-label' : ''} >
                     <strong>{index+1}. </strong>{todo.title}
                 </label>
-                <button className='edit-button' onClick={() => {editer(todo.id, todo)}}>Edit</button>
-                <button className='cancel-button' onClick={() => deleteHandler(todo.id)}>&times;</button>
+                <button className='edit-button' onClick={() => {editer(todo.id, todo)}}></button>
+                <button className='cancel-button' onClick={() => deleteHandler(todo.id)}></button>  {/*&times;*/}
             </div>
             { edit === todo.id ? (
-                <div className='todo-item'>
-                    <input 
+                <div className='edit-field'>
+                    <input
+                        className='edit-input' 
                         type="text"
                         onChange={e => editInputHandler(e)}
                         placeholder={editText.title}
                     />
-                    <button className='edit-button' onClick={() => submitEdit(todo.id)}>Edit</button>
+                    <button className='edit-submit' onClick={() => submitEdit(todo.id)}></button>
                 </div>
             ) : null}
         </div>

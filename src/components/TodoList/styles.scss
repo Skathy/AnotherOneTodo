@@ -4,19 +4,25 @@
     display: flex;
     margin-bottom: 20px;
     .input {
+        color: #000;
         font-family: 'Press Start 2P', cursive;
         width: 78%;
-        padding: 12px 20px;
-        padding-top: 10px;
+        padding: 10px 0 10px 10px;
         box-sizing: border-box;
-        border-radius: 5px;
+        border-radius: 3px;
         text-transform: uppercase;
+        outline: 0;
+        border: none;
+        border-bottom: 2px solid #8a02c0;
+        background: transparent;
+        text-shadow: $text-shadow-nonchecked;
     }
     .button-input {
-        background-color: #000;
+        background: transparent;
         color: $input-btn;
-        border: 2px solid #8a02c0;
-        border-radius: 5px;
+        border: none;
+        border-bottom: 2px solid #8a02c0;
+        border-radius: 3px;
         font-family: 'Press Start 2P', cursive;
         transition: 0.4s;
         padding: 13px 18px;
@@ -24,9 +30,10 @@
         margin-left: auto;
         cursor: pointer;
         &:hover {
-            border: 2px solid #8a02c0;
+            border: none;
+            border-bottom: 2px solid #8a02c0;
             background-color: #bc13fe;
-            border-radius: 5px;
+            border-radius: 3px;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 .todo-item-wrapper {
     border-bottom: 2px solid #8a02c0;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 5px;
     .todo-item {
         font-size: 0.7rem;
@@ -18,34 +18,85 @@
             text-shadow: $text-shadow-checked;
         }
         .edit-button {
-            border: 2px solid #8a02c0;
-            border-radius: 5px;
+            height: 25px;
+            width: 25px;
+            border: none;
+            border-bottom: 2px solid #8a02c0;
+            border-radius: 3px;
             background-color: #000;
             color: $input-btn;
             margin-left: auto;
             padding: 3px;
             cursor: pointer;
+            transition: 0.4s;
+            background: transparent;
+            background-image: url(../../media/pencil-outline.png);
             &:hover {
-                border: 2px solid #8a02c0;
+                border: none;
+                border-bottom: 2px solid #8a02c0;
                 background-color: #bc13fe;
-                border-radius: 5px;
+                border-radius: 3px;
             }
         }
         .cancel-button {
-            width: 26px;
+            height: 25px;
+            width: 25px;
             padding: 3px;
             align-items: center;
-            border-radius: 5px;
+            border-radius: 3px;
             transition: 0.4s;
-            border: 2px solid #8a02c0;
-            background-color: #000;
+            border: none;
+            border-bottom: 2px solid #8a02c0;
+            background: transparent;
+            background-image: url(../../media/deleteforeveroutline.png);
             color: $input-btn;
             margin: 8px 2px;
             cursor: pointer;
             &:hover {
-                border: 2px solid #8a02c0;
+                border-bottom: 2px solid #8a02c0;
                 background-color: #bc13fe;
-                border-radius: 5px;
+                border-radius: 3px;
+            }
+        }
+    }
+    .edit-field {
+        font-size: 0.7rem;
+        display: flex;
+        align-items: baseline;
+        text-shadow: $text-shadow-nonchecked;
+        .edit-input {
+            color: #000;
+            font-family: 'Press Start 2P', cursive;
+            width: 90%;
+            padding: 15px 0 10px 10px;
+            text-transform: uppercase;
+            outline: 0;
+            border: none;
+            border-bottom: 2px solid #8a02c0;
+            border-radius: 3px;
+            background: transparent;
+            text-shadow: $text-shadow-nonchecked;
+            box-sizing: border-box;
+        } 
+        .edit-submit {
+            height: 25px;
+            width: 25px;
+            border: none;
+            border-bottom: 2px solid #8a02c0;
+            border-radius: 3px;
+            background-color: #000;
+            color: $input-btn;
+            margin-left: auto;
+            padding: 3px;
+            cursor: pointer;
+            transition: 0.4s;
+            background: transparent;
+            background-image: url(../../media/check.png);
+            &:hover {
+                border: none;
+                border-bottom: 2px solid #8a02c0;
+                background-color: #bc13fe;
+                border-radius: 3px;
             }
         }
     } 
