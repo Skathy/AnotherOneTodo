@@ -66,7 +66,7 @@ const TodoList = () => {
     }
 
     const addTodoHandler = () => {
-        if (todo.title.trim() !== '' && todo.title.match('^[A-Za-z0-9]+$') ) {
+        if (todo.title.trim() !== '' && todo.title.match('^[a-zA-Z0-9 ,.!?`;:\'\"\|]*$') ) {
             setTodo(prev => ({...prev, id: uuid()}))
             dispatch(addTodo(todo))
             localStorage.setItem('todos', JSON.stringify([...todos, todo]))
@@ -95,17 +95,25 @@ const TodoList = () => {
     }
 
     const submitEditing = (id) => {
-        const editedArr = todos.map(item => {
-            if (item.id === id) {
-                return {...item, title: editText.title}
+        if (editText.title.trim() !== '' ) {
+            if (editText.title.match('^[a-zA-Z0-9 ,.!?`;:\'\"\|]*$')) {
+                const editedArr = todos.map(item => {
+                    if (item.id === id) {
+                        return {...item, title: editText.title}
+                    } else {
+                        return item
+                    }
+                })
+                dispatch(editTodo(editedArr))
+                localStorage.setItem('todos', JSON.stringify(editedArr))
+                setEditText('')
+                setEdit(null)
             } else {
-                return item
-            }
-        })
-        dispatch(editTodo(editedArr))
-        localStorage.setItem('todos', JSON.stringify(editedArr))
-        setEditText(null)
-        setEdit(null)
+                alert('ENG ONLY ALLOWED!')
+            }  
+        } else {
+            deleteHandler(id)
+        }
     }
 
     return (

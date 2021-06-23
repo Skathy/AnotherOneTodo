@@ -19,7 +19,7 @@ const TodoItem = ({todo, index, deleteHandler, checkHandler, editer, edit, editT
                         className='edit-input' 
                         type="text"
                         onChange={e => editInputHandler(e)}
-                        placeholder={editText.title}
+                        value={editText.title}
                     />
                     <button className='edit-submit' onClick={() => submitEdit(todo.id)}></button>
                 </div>
