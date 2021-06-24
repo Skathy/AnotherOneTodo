@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { useState } from 'react';  
 import { addTodo, getTodos, checked, deleteTodo, editTodo } from '../../store/todo-list/actions';
+import CustomInput from '../customInput';
 import { v4 as uuid } from 'uuid'
 import './styles.scss'
 
@@ -119,13 +120,13 @@ const TodoList = () => {
     return (
             <div>
                 <div className='input-wrapper'>
-                    <input
+                    <CustomInput
                         className='input'
                         value={todo.title} 
                         placeholder=' ADD TODO..'
                         onChange={e => inputOnChangeHandler(e)}
                         type="text"
-                        />
+                    />
                     <button className='button-input' type='button' onClick={addTodoHandler}>ADD</button>
                     {/* {!validateAlert.isEngValid ? 
                         <div>

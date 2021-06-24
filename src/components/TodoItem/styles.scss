@@ -13,9 +13,13 @@
             margin-right: 10px;
         }
         .form-check-label {
+            max-width: 245px;
             text-decoration: line-through;
             color: $checked-text;
             text-shadow: $text-shadow-checked;
+        }
+        .form-label {
+            max-width: 245px;
         }
         .edit-button {
             height: 25px;
@@ -60,24 +64,8 @@
         }
     }
     .edit-field {
-        font-size: 0.7rem;
         display: flex;
         align-items: baseline;
-        text-shadow: $text-shadow-nonchecked;
-        .edit-input {
-            color: #000;
-            font-family: 'Press Start 2P', cursive;
-            width: 90%;
-            padding: 15px 0 10px 10px;
-            text-transform: uppercase;
-            outline: 0;
-            border: none;
-            border-bottom: 2px solid #8a02c0;
-            border-radius: 3px;
-            background: transparent;
-            text-shadow: $text-shadow-nonchecked;
-            box-sizing: border-box;
-        } 
         .edit-submit {
             height: 25px;
             width: 25px;

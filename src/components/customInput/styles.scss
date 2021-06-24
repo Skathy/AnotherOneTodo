@@ -1,0 +1,23 @@
+@import '../../assets/styles/colors.scss';
+
+.custom-input-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    .edit-input {
+        margin: 0;
+        font-size: 0.7rem;
+        color: #000;
+        font-family: 'Press Start 2P', cursive;
+        width: 95%;
+        padding: 11px 10px 11px 10px;
+        text-transform: uppercase;
+        outline: 0;
+        border: none;
+        border-bottom: 2px solid #8a02c0;
+        border-radius: 3px;
+        background: transparent;
+        text-shadow: $text-shadow-nonchecked;
+        box-sizing: border-box;
+    } 
+}
