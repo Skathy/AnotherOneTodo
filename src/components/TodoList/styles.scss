@@ -5,6 +5,7 @@
     margin-bottom: 20px;
     .input {
         color: $black;
+        -webkit-text-fill-color: $black;
         font-family: 'Press Start 2P', cursive;
         width: 78%;
         padding: 10px 0 10px 10px;
@@ -15,7 +16,7 @@
         border: none;
         border-bottom: 2px solid $dark-purple;
         background: transparent;
-        text-shadow: $cyan-neon-shadow;
+        text-shadow: $general-text-shadow;
     }
     .button-input {
         background: transparent;
@@ -41,13 +42,15 @@
     overflow: scroll;
     max-height: 162px;
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    // overflow-x: hidden;
     scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 .todo-counter {
     margin-top: 15px;
     font-size: 1.25rem;
     color: $black;
-    text-shadow: $green-neon-shadow;
+    text-shadow: $todo-counter-shadow;
 }

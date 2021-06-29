@@ -8,7 +8,7 @@
         font-size: 0.7rem;
         display: flex;
         align-items: center;
-        text-shadow: $cyan-neon-shadow;
+        text-shadow: $general-text-shadow;
         .form-check-input{
             margin-right: 10px;
         }
@@ -16,7 +16,7 @@
             max-width: 245px;
             text-decoration: line-through;
             color: $checked-text;
-            text-shadow: $red-neon-shadow;
+            text-shadow: $checked-text-shadow;
         }
         .form-label {
             max-width: 245px;

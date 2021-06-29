@@ -1,14 +1,17 @@
 @import './assets/styles/colors.scss';
 
 .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-transform: uppercase;
     font-family: 'Press Start 2P', cursive;
     background: rgba(0, 0, 0, 0.5);
     padding: 15px;
     border-radius: 5px;
-    margin: 0 auto;
+    // margin: 0 auto;
     width: 350px;
-    margin-top: 15%;
+    // margin-top: 15%;
 }
 
 

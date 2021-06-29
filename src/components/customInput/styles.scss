@@ -7,7 +7,8 @@
     .edit-input {
         margin: 0;
         font-size: 0.7rem;
-        color: #000;
+        color: $black;
+        -webkit-text-fill-color: $black;
         font-family: 'Press Start 2P', cursive;
         width: 95%;
         padding: 11px 10px 11px 10px;
@@ -17,7 +18,7 @@
         border-bottom: 2px solid $dark-purple;
         border-radius: 3px;
         background: transparent;
-        text-shadow: $cyan-neon-shadow;
+        text-shadow: $general-text-shadow;
         box-sizing: border-box;
     } 
 }
