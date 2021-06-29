@@ -1,14 +1,14 @@
 @import '../../assets/styles/colors.scss';
 
 .todo-item-wrapper {
-    border-bottom: 2px solid #8a02c0;
+    border-bottom: 2px solid $dark-purple;
     border-radius: 3px;
     padding: 5px;
     .todo-item {
         font-size: 0.7rem;
         display: flex;
         align-items: center;
-        text-shadow: $text-shadow-nonchecked;
+        text-shadow: $cyan-neon-shadow;
         .form-check-input{
             margin-right: 10px;
         }
@@ -16,7 +16,7 @@
             max-width: 245px;
             text-decoration: line-through;
             color: $checked-text;
-            text-shadow: $text-shadow-checked;
+            text-shadow: $red-neon-shadow;
         }
         .form-label {
             max-width: 245px;
@@ -25,10 +25,10 @@
             height: 25px;
             width: 25px;
             border: none;
-            border-bottom: 2px solid #8a02c0;
+            border-bottom: 2px solid $dark-purple;
             border-radius: 3px;
-            background-color: #000;
-            color: $input-btn;
+            background-color: $black;
+            color: $white;
             margin-left: auto;
             padding: 3px;
             cursor: pointer;
@@ -37,8 +37,8 @@
             background-image: url(../../media/pencil-outline.png);
             &:hover {
                 border: none;
-                border-bottom: 2px solid #8a02c0;
-                background-color: #bc13fe;
+                border-bottom: 2px solid $dark-purple;
+                background-color: $light-purple;
                 border-radius: 3px;
             }
         }
@@ -50,15 +50,15 @@
             border-radius: 3px;
             transition: 0.4s;
             border: none;
-            border-bottom: 2px solid #8a02c0;
+            border-bottom: 2px solid $dark-purple;
             background: transparent;
             background-image: url(../../media/deleteforeveroutline.png);
-            color: $input-btn;
+            color: $white;
             margin: 8px 2px;
             cursor: pointer;
             &:hover {
-                border-bottom: 2px solid #8a02c0;
-                background-color: #bc13fe;
+                border-bottom: 2px solid $dark-purple;
+                background-color: $light-purple;
                 border-radius: 3px;
             }
         }
@@ -70,10 +70,10 @@
             height: 25px;
             width: 25px;
             border: none;
-            border-bottom: 2px solid #8a02c0;
+            border-bottom: 2px solid $dark-purple;
             border-radius: 3px;
-            background-color: #000;
-            color: $input-btn;
+            background-color: $black;
+            color: $white;
             margin-left: auto;
             padding: 3px;
             cursor: pointer;
@@ -82,8 +82,8 @@
             background-image: url(../../media/check.png);
             &:hover {
                 border: none;
-                border-bottom: 2px solid #8a02c0;
-                background-color: #bc13fe;
+                border-bottom: 2px solid $dark-purple;
+                background-color: $light-purple;
                 border-radius: 3px;
             }
         }

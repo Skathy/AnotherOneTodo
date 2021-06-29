@@ -1,35 +1,38 @@
-$text-shadow-nonchecked:
+$cyan-neon-shadow:
     0 0 2px #fff,
     0 0 4px #fff,
     0 0 6px #fff,
-    0 0 10px rgb(0, 204, 255),
-    0 0 25px rgb(0, 204, 255),
-    0 0 15px rgb(0, 204, 255),
-    0 0 20px rgb(0, 204, 255),
-    0 0 20px rgb(0, 204, 255);
+    0 0 10px #00cccd,
+    0 0 25px #00cccd,
+    0 0 15px #00cccd,
+    0 0 20px #00cccd,
+    0 0 20px #00cccd;
 
-$text-shadow-checked: 
-0 0 2px #fff,
-0 0 4px #fff,
-0 0 6px #fff,
-0 0 10px rgb(250, 0, 0),
-0 0 25px rgb(250, 0, 0),
-0 0 15px rgb(250, 0, 0),
-0 0 20px rgb(250, 0, 0),
-0 0 20px rgb(250, 0, 0);
+$red-neon-shadow: 
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px #fa0000,
+    0 0 25px #fa0000,
+    0 0 15px #fa0000,
+    0 0 20px #fa0000,
+    0 0 20px #fa0000;
 
-$todo-counter-shadow:
-0 0 2px #fff,
-0 0 4px #fff,
-0 0 6px #fff,
-0 0 10px rgb(0, 4, 255),
-0 0 25px rgb(0, 255, 98),
-0 0 15px rgb(0, 255, 98),
-0 0 20px rgb(0, 255, 98),
-0 0 20px rgb(0, 255, 98);
+$green-neon-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px #00f910,
+    0 0 25px #00f910,
+    0 0 15px #00f910,
+    0 0 20px #00f910,
+    0 0 20px #00f910;
 
-$checked-text: red;
+$checked-text: #fa0000;
 
-$text: #000;
-$input-btn: #fff;
+$dark-purple: #8a02c0;
+$light-purple: #bc13fe;
+
+$black: #000;
+$white: #fff;
 

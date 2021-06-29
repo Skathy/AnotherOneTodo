@@ -18,7 +18,7 @@ const TodoItem = ({todo, index, deleteHandler, checkHandler, editer, edit, editT
                     <strong>{index+1}. </strong>{todo.title}
                 </label>
                 <button className='edit-button' onClick={() => {editer(todo.id, todo)}}></button>
-                <button className='cancel-button' onClick={() => deleteHandler(todo.id)}></button>  {/*&times;*/}
+                <button className='cancel-button' onClick={() => deleteHandler(todo.id)}></button>
             </div>
             { edit === todo.id ? (
                 <div className='edit-field'>

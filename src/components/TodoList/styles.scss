@@ -4,7 +4,7 @@
     display: flex;
     margin-bottom: 20px;
     .input {
-        color: #000;
+        color: $black;
         font-family: 'Press Start 2P', cursive;
         width: 78%;
         padding: 10px 0 10px 10px;
@@ -13,15 +13,15 @@
         text-transform: uppercase;
         outline: 0;
         border: none;
-        border-bottom: 2px solid #8a02c0;
+        border-bottom: 2px solid $dark-purple;
         background: transparent;
-        text-shadow: $text-shadow-nonchecked;
+        text-shadow: $cyan-neon-shadow;
     }
     .button-input {
         background: transparent;
-        color: $input-btn;
+        color: $white;
         border: none;
-        border-bottom: 2px solid #8a02c0;
+        border-bottom: 2px solid $dark-purple;
         border-radius: 3px;
         font-family: 'Press Start 2P', cursive;
         transition: 0.4s;
@@ -31,8 +31,8 @@
         cursor: pointer;
         &:hover {
             border: none;
-            border-bottom: 2px solid #8a02c0;
-            background-color: #bc13fe;
+            border-bottom: 2px solid $dark-purple;
+            background-color: $light-purple;
             border-radius: 3px;
         }
     }
@@ -42,11 +42,12 @@
     max-height: 162px;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    overflow-y: hidden;
     scrollbar-width: none;
 }
 .todo-counter {
     margin-top: 15px;
     font-size: 1.25rem;
-    color: $text;
-    text-shadow: $todo-counter-shadow;
+    color: $black;
+    text-shadow: $green-neon-shadow;
 }
