@@ -3,7 +3,7 @@ import './styles.scss'
 import CustomInput from '../customInput'
 import CustomCheckbox from './../customCheckbox';
 
-const TodoItem = ({todo, index, deleteHandler, checkHandler, editer, edit, editText, editInputHandler, submitEdit}) => {
+const TodoItem = ({todo, index, deleteHandler, checkHandler, editer, edit, editText, editInputHandler, submitEdit, displayAlert}) => {
 
 
     return(
@@ -21,15 +21,20 @@ const TodoItem = ({todo, index, deleteHandler, checkHandler, editer, edit, editT
                 <button className='cancel-button' onClick={() => deleteHandler(todo.id)}></button>
             </div>
             { edit === todo.id ? (
-                <div className='edit-field'>
-                    <CustomInput
-                        className='edit-input'
-                        type='text'
-                        onChange={e => editInputHandler(e)}
-                        value={editText.title}
-                    />
-                    <button className='edit-submit' onClick={() => submitEdit(todo.id)}></button>
-                </div>
+                <>
+                    <div className='edit-field'>
+                        <CustomInput
+                            className='edit-input'
+                            type='text'
+                            onChange={e => editInputHandler(e)}
+                            value={editText.title}
+                        />
+                        <button className='edit-submit' onClick={() => submitEdit(todo.id)}></button>
+                    </div>
+                    {/* {displayAlert().map( (alert, index) => (
+                        <div className='alert' key={index}>{alert}</div>
+                    ))} */}
+                </>
             ) : null}
         </div>
     )

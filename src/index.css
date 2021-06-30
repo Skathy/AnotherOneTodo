@@ -5,6 +5,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   height: 100%;
+  /* -webkit-text-fill-color: #000; */
 }
 body {
   height: 100%;

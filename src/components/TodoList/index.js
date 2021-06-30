@@ -12,6 +12,7 @@ import './styles.scss'
 const TodoList = () => {
     const [edit, setEdit] = useState(null)
     const [editText, setEditText] = useState(null)
+    const [errId, setErrId] = useState(null)
     const {todos} = useSelector(state => state.todos)
     const dispatch = useDispatch()
 
@@ -21,24 +22,27 @@ const TodoList = () => {
         completed: false
     })
 
-    // const [validateAlert, setValidateAlert] = useState([
-    //     { isEmpty: true },
-    //     { isEngValid: Boolean(todo.title.match('^[A-Za-z0-9]+$')) },
-    // ])
-    // const errors = {
-    //     isEngValid: 'sry no habla espaniola! Eng only!',
-    //     isEmpty: 'todo can not be an empty str',
-    // }
+    const [validateAlert, setValidateAlert] = useState([
+        { isEmpty: false },
+        { isEngValid: false },
+    ])
+    const errors = {
+        isEmpty: 'todo can not be an empty str',
+        isEngValid: 'SLISH! PO ANGLISKY GOVORI!',
+    }
 
-    // const displayAlert = () => {
-    //     const triggeredAlerts = validateAlert.filter(
-    //         item => item[Object.keys(item)[0]] === true
-    //     )
-    //     const displayedAlerts = triggeredAlerts.filter(
-    //         item => Object.keys(item)[1] === Object.keys(errors)[0]
-    //     )
-    //     return displayedAlerts.map( item => errors[Object.keys(item)])     
-    // }
+    const displayAlert = () => {
+
+        const triggeredAlerts = validateAlert.filter(
+            (item) => item[Object.keys(item)] === true
+        )
+
+        const displayedAlerts = triggeredAlerts.filter(
+            item => Object.keys(item) == Object.keys(errors)[errId]
+        )
+
+        return displayedAlerts.map( item => errors[Object.keys(item)])     
+    }
 
     useEffect(() => {
         if (!JSON.parse(localStorage.getItem('todos'))) {
@@ -67,28 +71,44 @@ const TodoList = () => {
     }
 
     const addTodoHandler = () => {
-        if (todo.title.trim() !== '' && todo.title.match('^[a-zA-Z0-9 ,.!?`;:\'\"\|]*$') ) {
+        if (displayAlert() == false ) {
             setTodo(prev => ({...prev, id: uuid()}))
             dispatch(addTodo(todo))
             localStorage.setItem('todos', JSON.stringify([...todos, todo]))
             setTodo(prev => ({...prev, title: ''}))
         } else {
-            alert('todo can be eng only and can`t be an empty string!')
+            setErrId(null)
             setTodo(prev => ({...prev, title: ''}))
         }
     }
 
     const inputOnChangeHandler = (e) => {
-        if (e.target.value === '' ) {
-            // setValidateAlert( prev => [...prev, {isEmpty: false}])
+        if (e.target.value.trim() === '') {
+            setValidateAlert([{isEmpty: true}])
+            setErrId(0)
+            setTodo((prev) => ({...prev, title: e.target.value}))
+        } else if (e.target.value.match('^[a-zA-Z0-9 ,.!?`;:\'\"\|]*$')){
+            setValidateAlert([{isEmpty: false}, {isEngValid: false}])
             setTodo((prev) => ({...prev, title: e.target.value}))
         } else {
+            setValidateAlert([{isEngValid: true}])
+            setErrId(1)
             setTodo((prev) => ({...prev, title: e.target.value}))
-            // setValidateAlert( prev => [...prev, {isEmpty: false}])
         }
     }
     const editInputHandler = (e) => {
-        setEditText(prev => ({...prev, title: e.target.value}))
+        if (e.target.value.trim() === '') {
+            setValidateAlert([{isEmpty: true}])
+            setErrId(0)
+            setEditText(prev => ({...prev, title: e.target.value}))
+        } else if (e.target.value.match('^[a-zA-Z0-9 ,.!?`;:\'\"\|]*$')) {
+            setValidateAlert([{isEmpty: false}, {isEngValid: false}])
+            setEditText(prev => ({...prev, title: e.target.value}))
+        } else {
+            setValidateAlert([{isEngValid: true}])
+            setErrId(1)
+            setEditText((prev) => ({...prev, title: e.target.value}))
+        }
     }
     const editHandler = (id, todo) => {
         setEditText(todo)
@@ -96,8 +116,7 @@ const TodoList = () => {
     }
 
     const submitEditing = (id) => {
-        if (editText.title.trim() !== '' ) {
-            if (editText.title.match('^[a-zA-Z0-9 ,.!?`;:\'\"\|]*$')) {
+        if ( displayAlert() == false ) {
                 const editedArr = todos.map(item => {
                     if (item.id === id) {
                         return {...item, title: editText.title}
@@ -109,11 +128,9 @@ const TodoList = () => {
                 localStorage.setItem('todos', JSON.stringify(editedArr))
                 setEditText('')
                 setEdit(null)
-            } else {
-                alert('ENG ONLY ALLOWED!')
-            }  
         } else {
-            deleteHandler(id)
+            // console.log(editText)
+            setEditText('')
         }
     }
 
@@ -128,13 +145,12 @@ const TodoList = () => {
                         type="text"
                     />
                     <button className='button-input' type='button' onClick={addTodoHandler}>ADD</button>
-                    {/* {!validateAlert.isEngValid ? 
-                        <div>
-                            {Object.keys( errors) === Object.keys(alert) ? {alert} : null} 
-                        </div>
-                     : null} */}
+
                 </div>
                 <div className='todo-wrapper'>
+                { displayAlert().length? displayAlert().map( (alert, index) => (
+                    <div className='alert' key={index}>{alert}</div>
+                )): null}
                     {todos.map( (todo, index) => (
                             <TodoItem
                                 key={index} 
@@ -148,6 +164,7 @@ const TodoList = () => {
                                 setEditText={setEditText}
                                 editInputHandler={editInputHandler}
                                 submitEdit={submitEditing}
+                                displayAlert={displayAlert}
                             />
                     ))}
                 </div>

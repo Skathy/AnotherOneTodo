@@ -42,10 +42,17 @@
     overflow: scroll;
     max-height: 162px;
     scroll-behavior: smooth;
-    // overflow-x: hidden;
     scrollbar-width: none;
     &::-webkit-scrollbar {
         display: none;
+    }
+    .alert {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: $black;
+        font-size: 0.7rem;
+        text-shadow: $checked-text-shadow;
     }
 }
 .todo-counter {
