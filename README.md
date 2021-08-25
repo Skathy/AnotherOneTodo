@@ -1,1 +1,1 @@
-just a training dumb todo app
+PET PROJECT 1.0
